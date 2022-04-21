@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Car Management Dashboard</title>
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/style.css" />
+        <!-- Bootstrap Icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+        <!-- Alert -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    </head>
+    <body id="body-pd">
+        <!-- Navbar -->
+        <header class="header navbar navbar-expand-md pe-0" id="header">
+            <div class="d-flex me-auto header_toggle">
+                <i class="bx bx-menu mx-4" id="header-toggle"></i>
+            </div>
+            <form class="d-flex ms-auto">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-primary btn-outline" type="submit">Search</button>
+            </form>
+            <div class="btn-group ms-2 user-setting">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                    <img src="../images/Rectangle 62.png" class="rounded-circle" alt="" style="width: 38px; height: 38px; object-fit: cover" />
+                    Unis Badri
+                </button>
+                <ul class="dropdown-menu dropdown-menu-sm-end">
+                    <li>
+                        <button class="dropdown-item" type="button">Setting</button>
+                    </li>
+                    <li>
+                        <button class="dropdown-item" type="button">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <!-- Sidebar -->
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <table class="h-100">
+                    <tr>
+                        <td style="vertical-align: top; width: 60px; padding: 0px">
+                            <img class="nav_logo" src="../images/Rectangle 63.png" />
+                            <a href="/" class="nav_link"><img src="../images/Home.png" alt="" /></a>
+                            <a href="/" class="nav_link active-menu"><img src="../images/Administrator.png" alt="" /></a>
+                        </td>
+                        <td style="vertical-align: top; background-color: #ffffff; padding: 0px">
+                            <img class="nav_logo" src="../images/Rectangle 62.png" />
+                            <p class="nav_title" style="margin-top: 17px">CARS</p>
+                            <a href="/" class="nav_title text-black bg-color-1">List Car</a>
+                        </td>
+                    </tr>
+                </table>
+            </nav>
+        </div>
+        <!-- Container Main -->
+        <div class="h-100 mx-4">
+            <!-- Breadcrumb -->
+            <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+                <ol class="breadcrumb pt-3">
+                    <li class="breadcrumb-item">
+                        <a class="fw-bold text-black text-decoration-none">Cars</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/" class="fw-bold text-black text-decoration-none">List Car</a>
+                    </li>
+                    <li class="breadcrumb-item active">Add New Car</li>
+                </ol>
+            </nav>
+            <!-- Title Content -->
+            <div class="pt-2 d-flex justify-content-between">
+                <h4 class="h4 fw-bold mb-3">Add New Car</h4>
+            </div>
+            <!-- Add New Car -->
+            <form action="/api/v1/Cars" method="POST" enctype="multipart/form-data">
+                <div class="p-3 mb-3">
+                    <div class="row mb-3">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+                            <label>Nama<label style="color: red">*</label></label>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7">
+                            <input type="text" name="name_car" id="name_car" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+                            <label>Sewa Per Hari<label style="color: red">*</label></label>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7">
+                            <input type="text" name="rent_cost" id="rent_cost" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+                            <label>Ukuran</label>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7">
+                            <select class="form-select" name="id_type">
+                                <option value="1">Small</option>
+                                <option value="2">Medium</option>
+                                <option value="3">Large</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+                            <label>Foto<label style="color: red">*</label></label>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7">
+                            <div class="input-group">
+                                <input type="file" name="image_car" class="form-control input-image" id="image_car" required />
+                                <span class="input-group-text"><i class="bi bi-upload"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6 cols-sm-7">
+                        <a href="/" class="btn btn-outline-primary btn-action btn-outline">Cancel</a>
+                        <button type="button" onclick="confirm()" class="btn btn-primary btn-action btn-fill">Save</button>
+                        <button type="submit" id="btnSave" hidden>Save</button>
+                    </div>
+                </div>
+            </form>
+            <!-- End Add New Car -->
+        </div>
+        <!-- Script Alert-->
+        <script>
+            function confirm() {
+                let name_car = document.getElementById("name_car").value;
+                let rent_cost = document.getElementById("rent_cost").value;
+                let image_car = document.getElementById("image_car").value;
+                const btnSave = document.getElementById("btnSave");
+
+                Swal.fire({
+                    title: "Data sudah benar?",
+                    text: "Periksa kembali data yang anda masukkan",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Save",
+                }).then((saveSucess) => {
+                    if (saveSucess.isConfirmed) {
+                        if (name_car == "" || rent_cost == "" || image_car == "") {
+                            Swal.fire("Harap isi semua data", "Apa masih ada yang kosong ?", "question");
+                            return;
+                        }
+                        Swal.fire("Berhasil!", "Data berhasil ditambahkan.", "success");
+                        btnSave.click();
+                    }
+                });
+            }
+        </script>
+        <script src="../js/dist/sweetalert2.all.min.js"></script>
+        <!-- Navbar JS -->
+        <script src="../js/navbar.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+</html>
